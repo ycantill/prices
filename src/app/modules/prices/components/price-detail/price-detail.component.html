@@ -1,0 +1,21 @@
+<div *ngIf="priceDetails$ | async as priceDetails; else loading">
+  <div class="row sticky-top header">
+    <div class="col-6"><strong>Nombre: </strong>{{ priceDetails.name }}</div>
+    <div class="col-6"><strong>Unidad: </strong>{{ priceDetails.unit }}</div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let priceValue of priceDetails.values">
+        <td>{{ priceValue.date | date: "dd-MM-Y hh:mm a" }}</td>
+        <td>{{ priceValue.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #loading> Cargando... </ng-template>

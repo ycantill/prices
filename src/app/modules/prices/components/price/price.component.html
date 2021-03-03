@@ -1,0 +1,5 @@
+<td>{{ price.name }}</td>
+<td>{{ price.unit }}</td>
+<td>{{ price.value }}</td>
+<td>{{ price.date | date: "dd-MM-Y hh:mm a" }}</td>
+<td><a [routerLink]="['/prices', price.key]">Ver más</a></td>
